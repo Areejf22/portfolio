@@ -20,14 +20,16 @@ const sounds = [
 let background = new Image();
 background.src = backgrounds[0];
 let charX = 300;
+let item2X = 600;
+let item3X = 350;
 
 function drawScene() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  items.forEach(item => {
-    if (item.show) ctx.drawImage(item.img, item.x, item.y, 50, 50);
-  });
-  ctx.drawImage(character, charX, 250, 100, 100);
+  if (items[0].show) ctx.drawImage(items[0].img, 100, 100, 50, 50); // Sun stays fixed
+  if (items[1].show) ctx.drawImage(items[1].img, item2X, 100, 50, 50); // Tree
+  if (items[2].show) ctx.drawImage(items[2].img, item3X, 400, 50, 50); // Flower
+  ctx.drawImage(character, charX, 250, 100, 100); // Cat
 }
 
 document.getElementsByName('background').forEach(radio => {
@@ -38,7 +40,7 @@ document.getElementsByName('background').forEach(radio => {
 });
 
 document.getElementById('moveSlider').addEventListener('input', (e) => {
-  charX = e.target.value;
+  charX = parseInt(e.target.value);
   drawScene();
 });
 
@@ -47,6 +49,26 @@ document.getElementById('moveSlider').addEventListener('input', (e) => {
     items[index].show = e.target.checked;
     drawScene();
   });
+});
+
+document.body.insertAdjacentHTML('beforeend', `
+  <div style="margin: 20px 0">
+    <label><strong>Move Tree:</strong></label>
+    <input type="range" id="treeSlider" min="0" max="700" value="600">
+    <br>
+    <label><strong>Move Flower:</strong></label>
+    <input type="range" id="flowerSlider" min="0" max="700" value="350">
+  </div>
+`);
+
+document.getElementById('treeSlider').addEventListener('input', (e) => {
+  item2X = parseInt(e.target.value);
+  drawScene();
+});
+
+document.getElementById('flowerSlider').addEventListener('input', (e) => {
+  item3X = parseInt(e.target.value);
+  drawScene();
 });
 
 function playSound(n) {
