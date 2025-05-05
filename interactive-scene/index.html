@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Scene</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Interactive Scene</h1>
+  
+  <form id="controls">
+    <h3>Choose a Background:</h3>
+    <label><input type="radio" name="background" value="background1.jpg" checked> Sky</label>
+    <label><input type="radio" name="background" value="background2.jpg"> Mountains</label>
+    <label><input type="radio" name="background" value="background3.jpg"> Field</label>
+
+    <h3>Move Character:</h3>
+    <input type="range" id="moveSlider" min="0" max="600" value="300">
+
+    <h3>Show/Hide Items:</h3>
+    <label><input type="checkbox" id="item1" checked> Sun</label>
+    <label><input type="checkbox" id="item2" checked> Tree</label>
+    <label><input type="checkbox" id="item3" checked> Flower</label>
+
+    <h3>Sound Effects:</h3>
+    <button type="button" onclick="playSound(1)">Play Sound 1</button>
+    <button type="button" onclick="playSound(2)">Play Sound 2</button>
+    <button type="button" onclick="playSound(3)">Play Sound 3</button>
+  </form>
+
+  <canvas id="myCanvas" width="800" height="500"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
