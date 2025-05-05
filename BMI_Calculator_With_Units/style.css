@@ -1,0 +1,61 @@
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  background-image: url("images/background.jpg");
+  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Form container */
+.container {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 350px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  color: #000;
+}
+
+/* Input fields */
+input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Submit button */
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
