@@ -4,9 +4,8 @@ function calculateBMI() {
   const inches = parseFloat(document.getElementById("inches").value) || 0;
 
   const weightUnit = document.querySelector('input[name="weightUnit"]:checked').value;
-  const heightUnit = document.querySelector('input[name="heightUnit"]:checked').value;
 
-  // Convert feet + inches to total inches and meters
+  // Total height in inches
   const totalInches = (feet * 12) + inches;
 
   if (isNaN(weight) || totalInches <= 0) {
@@ -14,8 +13,9 @@ function calculateBMI() {
     return;
   }
 
+  // Convert weight to kg
   const weightInKg = weightUnit === "lbs" ? weight * 0.453592 : weight;
-  const heightInM = heightUnit === "in" ? totalInches * 0.0254 : totalInches * 0.0254; // meters in both cases now
+  const heightInM = totalInches * 0.0254;
 
   const bmi = weightInKg / (heightInM * heightInM);
   let category = "";
