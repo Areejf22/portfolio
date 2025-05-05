@@ -1,18 +1,21 @@
 function calculateBMI() {
   const weight = parseFloat(document.getElementById("weight").value);
-  const height = parseFloat(document.getElementById("height").value);
+  const feet = parseFloat(document.getElementById("feet").value) || 0;
+  const inches = parseFloat(document.getElementById("inches").value) || 0;
 
   const weightUnit = document.querySelector('input[name="weightUnit"]:checked').value;
   const heightUnit = document.querySelector('input[name="heightUnit"]:checked').value;
 
-  if (isNaN(weight) || isNaN(height) || height <= 0) {
+  // Convert feet + inches to total inches and meters
+  const totalInches = (feet * 12) + inches;
+
+  if (isNaN(weight) || totalInches <= 0) {
     document.getElementById("result").innerText = "Please enter valid numbers.";
     return;
   }
 
-  // Convert to kg and meters if needed
   const weightInKg = weightUnit === "lbs" ? weight * 0.453592 : weight;
-  const heightInM = heightUnit === "in" ? height * 0.0254 : height;
+  const heightInM = heightUnit === "in" ? totalInches * 0.0254 : totalInches * 0.0254; // meters in both cases now
 
   const bmi = weightInKg / (heightInM * heightInM);
   let category = "";
