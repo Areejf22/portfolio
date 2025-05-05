@@ -18,8 +18,13 @@
         <input type="radio" name="weightUnit" value="lbs"> lbs
       </div>
 
-      <label for="height"><b>Height</b></label>
-      <input type="text" id="height" placeholder="Enter height" required>
+      <label for="feet"><b>Height</b></label>
+      <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <input type="number" id="feet" placeholder="Feet" min="0" style="width: 80px;" required>
+        <input type="number" id="inches" placeholder="Inches" min="0" max="11" style="width: 80px;" required>
+      </div>
+      <small>Example: 5 feet 8 inches</small>
+
       <div>
         <input type="radio" name="heightUnit" value="m" checked> meters
         <input type="radio" name="heightUnit" value="in"> inches
