@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Visualization - Areej Fatima</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    canvas {
+      margin: 30px auto;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Favorite NYC Foods by Students</h1>
+  <p>Created by Areej Fatima for CISC 3610</p>
+
+  <canvas id="doughnutChart"></canvas>
+  <canvas id="barChart"></canvas>
+
+  <script>
+    const labels = ["Pizza", "Bagel", "Halal", "Dumplings", "Tacos", "Hot Dogs"];
+    const data = [25, 15, 20, 10, 18, 12];
+
+    // Doughnut Chart
+    new Chart(document.getElementById('doughnutChart'), {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Votes",
+          data: data,
+          backgroundColor: [
+            '#FF6384', '#36A2EB', '#FFCE56', '#66BB6A', '#BA68C8', '#FFA726'
+          ]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Doughnut Chart - Favorite NYC Foods'
+          }
+        }
+      }
+    });
+
+    // Horizontal Bar Chart
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Votes',
+          data: data,
+          backgroundColor: '#42A5F5'
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        plugins: {
+          title: {
+            display: true,
+            text: 'Horizontal Bar Chart - Favorite NYC Foods'
+          }
+        },
+        responsive: true
+      }
+    });
+  </script>
+
+</body>
+</html>
