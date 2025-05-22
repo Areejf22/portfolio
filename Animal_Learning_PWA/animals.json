@@ -1,0 +1,22 @@
+{
+  "animals": [
+    {
+      "title": "Lion",
+      "description": "Lions live in the African savannah. They are known as the kings of the jungle.",
+      "image": "images/lion.png",
+      "audio": "audio/lion.mp3"
+    },
+    {
+      "title": "Penguin",
+      "description": "Penguins are flightless birds that live in cold climates and waddle when they walk.",
+      "image": "images/penguin.png",
+      "audio": "audio/penguin.mp3"
+    },
+    {
+      "title": "Elephant",
+      "description": "Elephants are the largest land animals and live in forests and grasslands.",
+      "image": "images/elephant.png",
+      "audio": "audio/elephant.mp3"
+    }
+  ]
+}
